@@ -1,0 +1,18 @@
+<div>
+  <div class="" (focusin)="onInputFocusIn($event)" (focusout)="onInputFocusOut($event)" style="z-index: 100;" title="">
+    <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+      <input type="text" class="form-control twitter-typeahead underLineTextBox typeAheadStyle width-intial setHeight tt-hint" [placeholder]="input.placeholder"
+        [tabindex]="input.tabValue" autocomplete="off" spellcheck="false" dir="auto" [id]="input.id" style="position: relative; vertical-align: top; background-color: transparent;"
+        (input)="onInputChange($event)" [(ngModel)]="text" />
+
+      <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: calibri; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+      <div [ngClass]="(showResults)?'tt-menu tt-open':'tt-menu'" (mouseover)="mouseEnter($event)" (mouseleave)="mouseLeave($event)"
+        [style.display]="(showResults)? 'block':'none'" style="position: absolute; top: 100%; left: 0px; z-index: 100;display: block">
+        <div class="tt-dataset tt-dataset-4">
+          <div *ngFor="let result of results" class="tt-suggestion tt-selectable" (focusin)="onResultFocus($event)" (focusout)="onResultBlurFocus($event)"
+            (click)="onValueSelected($event, result)">{{result[input.searchColumn]}}</div>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>

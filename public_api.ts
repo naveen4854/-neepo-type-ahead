@@ -1,0 +1,1 @@
+export * from './src/app/modules/type-ahead/type-ahead.module'
